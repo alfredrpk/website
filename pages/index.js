@@ -4,6 +4,18 @@ import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
+import { DM_Sans} from 'next/font/google'
+
+const dm_sans_bold = DM_Sans({
+  weight: '700',
+  style: 'normal',
+  subsets: ['latin'],
+})
+const dm_sans = DM_Sans({
+  weight: '500',
+  style: 'normal',  
+  subsets: ['latin'],
+})
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -21,14 +33,9 @@ export default function Home({ allPostsData }) {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>[Your Self Introduction]</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this in{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
+        <h2 className={'${dm_sans_bold.className} #{utilStyles.headingLg}'}>Blog</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>

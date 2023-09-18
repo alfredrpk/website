@@ -3,9 +3,22 @@ import Image from 'next/image'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
+import { DM_Sans} from 'next/font/google'
 
 const name = 'Alfred Premkumar'
-export const siteTitle = 'Next.js Sample Website'
+export const siteTitle = 'alfredrpk'
+const dm_sans_bold = DM_Sans({
+  weight: '700',
+  style: 'normal',
+  subsets: ['latin'],
+})
+const dm_sans = DM_Sans({
+  weight: '500',
+  style: 'normal',  
+  subsets: ['latin'],
+})
+
+const { heroContent, heroWrapper, imageWrapper, linkCollection, iconStyle} = styles;
 
 export default function Layout({ children, home }) {
   return (
@@ -13,8 +26,7 @@ export default function Layout({ children, home }) {
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
-          name="description"
-          content="Learn how to build a personal website using Next.js"
+          name="alfredrpk"
         />
         <meta
           property="og:image"
@@ -28,15 +40,40 @@ export default function Layout({ children, home }) {
       <header className={styles.header}>
         {home ? (
           <>
-            <Image
-              priority
-              src="/images/profile.jpg"
-              className={utilStyles.borderCircle}
-              height={144}
-              width={144}
-              alt={name}
-            />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
+            <div className={heroWrapper}>
+              <div className={imageWrapper}>
+                <Image
+                  priority
+                  src="/images/header.jpg"
+                  //placeholder="blur"
+                  quality={100}
+                  fill
+                  style={{
+                    objectFit: 'cover',
+                    borderRadius: '0.5rem',
+                  }}
+                  alt="hero image example"
+                />
+              </div>
+
+              <div className={heroContent}>
+                <Image
+                  priority
+                  src="/images/profile.jpg"
+                  className={utilStyles.borderCircle}
+                  height={144}
+                  width={144}
+                  alt={name}
+                />
+              </div>
+            </div>
+            <h1 className={'${dm_sans_bold.className} #{utilStyles.heading2Xl}'}>{name}</h1>
+            <div className={linkCollection}>
+              <Link class="bi bi-github" style={{ color: 'black' }} href="https://github.com/alfredrpk" title="github"></Link>
+              <Link class="bi bi-linkedin" style={{ color: 'black' }} href="https://www.linkedin.com/in/alfred-premkumar-05b66a153/" title="linkedin"></Link>
+              <Link className={iconStyle} href="/about" title="about me">about</Link>
+            </div>
+            i make things i think are cool
           </>
         ) : (
           <>
@@ -50,7 +87,7 @@ export default function Layout({ children, home }) {
                 alt={name}
               />
             </Link>
-            <h2 className={utilStyles.headingLg}>
+            <h2 className={'${dm_sans_bold.className} #{utilStyles.headingLg}'}>
               <Link href="/" className={utilStyles.colorInherit}>
                 {name}
               </Link>
