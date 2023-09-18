@@ -61,9 +61,11 @@ export default function Layout({ children, home }) {
                   priority
                   src="/images/profile.jpg"
                   className={utilStyles.borderCircle}
-                  height={144}
-                  width={144}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
                   alt={name}
+                  style={{ width: 'auto', height: '80%' }}
                 />
               </div>
             </div>
@@ -71,6 +73,7 @@ export default function Layout({ children, home }) {
             <div className={linkCollection}>
               <Link class="bi bi-github" style={{ color: 'black' }} href="https://github.com/alfredrpk" title="github"></Link>
               <Link class="bi bi-linkedin" style={{ color: 'black' }} href="https://www.linkedin.com/in/alfred-premkumar-05b66a153/" title="linkedin"></Link>
+              <Link class="bi bi-envelope-fill" style={{ color: 'black' }} href="mailto:alfredrpk@gmail.com" title="email"></Link>
               <Link className={iconStyle} href="/about" title="about me">about</Link>
             </div>
             i make things i think are cool
