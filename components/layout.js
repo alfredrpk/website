@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { DM_Sans} from 'next/font/google'
 
 const name = 'Alfred Premkumar'
-export const siteTitle = 'alfredrpk'
+export const siteTitle = 'Alfred Premkumar'
 const dm_sans_bold = DM_Sans({
   weight: '700',
   style: 'normal',
